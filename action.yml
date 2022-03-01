@@ -1,0 +1,26 @@
+name: "Change the version of your project"
+description: "This action will change the version name or the version code directly in build.gradle (or build.gradle.kts) file."
+inputs:
+  gradlePath:
+    description: "build.gradle path"
+    required: true
+    default: "app/build.gradle"
+  versionCode:
+    description: "The new version code"
+    required: false
+  versionName:
+    description: "The new version name"
+    required: false
+outputs:
+  generated_version:
+    description: "Output of combined version for eg: 1.0.0 (100)"
+  generated_version_name:
+      description: "Output of the new versionName"
+  generated_version_code: # id of output
+      description: "Output of the new versionCode"
+runs:
+  using: "node12"
+  main: "index.js"
+branding:
+  color: 'blue'
+  icon: 'anchor'
