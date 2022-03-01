@@ -5,7 +5,7 @@ Override your android version name and version code through github actions
 * Override version code to bump version through github actions
 * Override version name
 
-## Parameters
+## Input Parameters
 `gradlePath`
 **Required**, File path to the **Path to the build.gradle or build.gradle.kts file** so that it knows where to find the file that contains the versionCode and versionName attributes.
 
@@ -14,6 +14,11 @@ Override your android version name and version code through github actions
 
 `versionName`
 **Optional**, Version name to override
+
+## Output Parameters
+**generated_version**, Output of combined version for eg: 1.0.0 (100)
+**generated_version_name**, Output of the new versionName
+**generated_version_code**, Output of the new versionCod
 
 ## Example
 ```
