@@ -19,23 +19,22 @@ try {
         console.log(`Current versionName = ${currentVersionName}, currentVersionCode = ${currentVersionCode} `)
 
         if (newVersionCode.length > 0) {
-            newGradleFileContent = newGradleFileContent.replace(versionCodeRegexPattern, `$1${versionCode}`);
+            newGradleFileContent = newGradleFileContent.replace(versionCodeRegexPattern, `$1${newVersionCode}`);
+            currentVersionCode = newVersionCode
+        } else {
+            newVersionCode = currentVersionCode
         }
 
         if (newVersionName.length > 0) {
-            newGradleFileContent = newGradleFileContent.replace(versionNameRegexPattern, `$1\"${versionName}\"`);
+            newGradleFileContent = newGradleFileContent.replace(versionNameRegexPattern, `$1\"${newVersionName}\"`);
+            currentVersionName = newVersionName
+        } else {
+            newVersionName = currentVersionName
         }
 
         fs.writeFile(gradlePath, newGradleFileContent, function (err) {
             if (err) throw err;
 
-            if (newVersionCode.length > 0) {
-                console.log(`Successfully changed the version code to ${newVersionCode}`)
-            }
-
-            if (newVersionName.length > 0) {
-                console.log(`Successfully changed the version name to ${newVersionName}`)
-            }
             console.log(`Generated version: ${newVersionName} (${newVersionCode})`)
             console.log(`Current version: ${currentVersionName} (${currentVersionCode})`)
 
@@ -49,15 +48,6 @@ try {
 }
 
 function findVersion(content, pattern) {
-    let m;
-    let result;
-    while ((m = pattern.exec(content)) !== null) {
-        if (m.index === pattern.lastIndex) {
-            pattern.lastIndex++;
-        }
-        m.forEach((match, groupIndex) => {
-            result = match
-        });
-    }
-    return result;
+    const result = pattern.exec(content);
+    return result[result.length - 1]
 }
