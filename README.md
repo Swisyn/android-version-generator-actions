@@ -23,10 +23,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: set up JDK 1.8
-        uses: actions/setup-java@v1
+      - name: Setup JDK 11
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          distribution: 'adopt'
+          java-version: '11'
+          check-latest: true
+          cache: 'gradle'
       - name: Bump version
         uses: Swisyn/android-version-generator-actions@v1
         with:
