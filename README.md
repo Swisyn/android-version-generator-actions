@@ -16,9 +16,11 @@ Override your android version name and version code through github actions
 **Optional**, Version name to override
 
 ## Output Parameters
-**generated_version**, Output of combined version for eg: 1.0.0 (100)
-**generated_version_name**, Output of the new versionName
-**generated_version_code**, Output of the new versionCod
+`generated_version`Output of combined version for eg: 1.0.0 (100)
+
+`generated_version_name` Output of the new versionName
+
+`generated_version_code` Output of the new versionCod
 
 ## Example
 ```
