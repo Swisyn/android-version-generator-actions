@@ -49,17 +49,12 @@ try {
 }
 
 function findVersion(content, pattern) {
-    const regex = /(versionName(?:\s|=)*)(.*)/gm;
-    const str = `versionName 12345`;
     let m;
     let result;
-    while ((m = regex.exec(str)) !== null) {
-        // This is necessary to avoid infinite loops with zero-width matches
-        if (m.index === regex.lastIndex) {
-            regex.lastIndex++;
+    while ((m = pattern.exec(content)) !== null) {
+        if (m.index === pattern.lastIndex) {
+            pattern.lastIndex++;
         }
-
-        // The result can be accessed through the `m`-variable.
         m.forEach((match, groupIndex) => {
             result = match
         });
