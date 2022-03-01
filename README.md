@@ -1,8 +1,8 @@
 # android-version-generator-actions v1
-Override your android version number and version code through github actions
+Override your android version name and version code through github actions
 
 ## Features
-* Override version number to bump version through github actions
+* Override version code to bump version through github actions
 * Override version name
 
 ## Parameters
