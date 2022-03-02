@@ -16,7 +16,7 @@ outputs:
     description: "Output of combined version for eg: 1.0.0 (100)"
   generated_version_name:
       description: "Output of the new versionName"
-  generated_version_code: # id of output
+  generated_version_code:
       description: "Output of the new versionCode"
 runs:
   using: "node12"
