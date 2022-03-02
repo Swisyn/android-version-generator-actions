@@ -29,7 +29,7 @@ try {
             newGradleFileContent = newGradleFileContent.replace(versionNameRegexPattern, `$1\"${newVersionName}\"`);
             currentVersionName = newVersionName
         } else {
-            newVersionName = currentVersionName.replaceAll("\"","")
+            newVersionName = currentVersionName.replace(/"/g,"")
         }
 
         fs.writeFile(gradlePath, newGradleFileContent, function (err) {
