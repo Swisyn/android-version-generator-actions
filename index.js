@@ -29,7 +29,7 @@ try {
             newGradleFileContent = newGradleFileContent.replace(versionNameRegexPattern, `$1\"${newVersionName}\"`);
             currentVersionName = newVersionName
         } else {
-            newVersionName = currentVersionName
+            newVersionName = currentVersionName.replaceAll("\"","")
         }
 
         fs.writeFile(gradlePath, newGradleFileContent, function (err) {
@@ -38,9 +38,9 @@ try {
             console.log(`Generated version: ${newVersionName} (${newVersionCode})`)
             console.log(`Current version: ${currentVersionName} (${currentVersionCode})`)
 
-            core.setOutput("generated_version", `${newVersionName} (${newVersionCode})`);
-            core.setOutput("generated_version_name", newVersionName);
-            core.setOutput("generated_version_code", newVersionCode);
+            core.setOutput("generated_version", `${newVersionName} (${newVersionCode})`.trim());
+            core.setOutput("generated_version_name", newVersionName.trim());
+            core.setOutput("generated_version_code", newVersionCode.trim());
         });
     });
 } catch (error) {
