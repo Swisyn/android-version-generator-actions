@@ -1,4 +1,4 @@
-# android-version-generator-actions v1.2
+# android-version-generator-actions v1.4
 Override your android version name and version code through github actions
 
 ## Features
