@@ -35,10 +35,14 @@ try {
         fs.writeFile(gradlePath, newGradleFileContent, function (err) {
             if (err) throw err;
 
-            console.log(`Generated version: ${newVersionName} (${newVersionCode})`)
-            console.log(`Current version: ${currentVersionName} (${currentVersionCode})`)
-
+            console.log(`##### Current version details #####\nVersion name: ${currentVersionName}\nVersion code: ${currentVersionCode}\n`)
+            console.log(`##### New version details #####\nVersion name:${newVersionName}\nVersion code: ${newVersionCode}\n`)
+           
             core.setOutput("generated_version", `${newVersionName} (${newVersionCode})`.trim());
+            
+            core.setOutput("current_version_name", currentVersionName.trim());
+            core.setOutput("current_version_code", currentVersionCode);
+            
             core.setOutput("generated_version_name", newVersionName.trim());
             core.setOutput("generated_version_code", newVersionCode.trim());
         });
