@@ -1,4 +1,4 @@
-https://img.shields.io/github/v/release/Swisyn/android-version-generator-actions
+[<img src="https://img.shields.io/github/v/release/Swisyn/android-version-generator-actions">](https://img.shields.io/github/v/release/Swisyn/android-version-generator-actions)
 
 # android-version-generator-actions v1.5
 Override your android version name and version code through github actions
