@@ -1,4 +1,4 @@
-# android-version-generator-actions v1.4
+# android-version-generator-actions v1.5
 Override your android version name and version code through github actions
 
 ## Features
@@ -14,6 +14,10 @@ Override your android version name and version code through github actions
 
 ## Output Parameters
 `generated_version` Output of combined version for eg: 1.0.0 (100)
+
+`current_version_name` Output of the existing versionName
+
+`current_version_code` Output of the existing versionCode
 
 `generated_version_name` Output of the new versionName
 
@@ -35,7 +39,7 @@ jobs:
           check-latest: true
           cache: 'gradle'
       - name: Bump version
-        uses: Swisyn/android-version-generator-actions@v1.2
+        uses: Swisyn/android-version-generator-actions@v1.5
         with:
           gradlePath: app/build.gradle # or app/build.gradle.kts 
           versionCode: ${{github.run_number}}
